@@ -2,11 +2,15 @@ package com.uniovi.notaneitor.controllers;
 
 import com.uniovi.notaneitor.entities.Professor;
 import com.uniovi.notaneitor.services.ProfessorService;
+import com.uniovi.notaneitor.validators.ProfessorAddValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ProfessorController {
+
+    @Autowired
+    private ProfessorAddValidator professorAddValidator;
 
     @Autowired
     private ProfessorService professorService;
