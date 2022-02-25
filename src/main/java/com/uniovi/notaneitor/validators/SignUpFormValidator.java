@@ -1,4 +1,4 @@
-package com.uniovi.notaneitor;
+package com.uniovi.notaneitor.validators;
 
 import com.uniovi.notaneitor.entities.User;
 import com.uniovi.notaneitor.services.UsersService;

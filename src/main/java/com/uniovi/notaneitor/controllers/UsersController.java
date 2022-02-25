@@ -1,5 +1,5 @@
 package com.uniovi.notaneitor.controllers;
-import com.uniovi.notaneitor.SignUpFormValidator;
+import com.uniovi.notaneitor.validators.SignUpFormValidator;
 import com.uniovi.notaneitor.services.SecurityService;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.security.core.Authentication;
@@ -63,14 +63,13 @@ public class UsersController {
 
     @RequestMapping(value = "/user/edit/{id}", method = RequestMethod.POST)
     public String setEdit(Model model, @PathVariable Long id, @ModelAttribute User user) {
-        usersService.addUser(user);
+        User newUser = usersService.getUser(id);
+        newUser.setDni(user.getDni());
+        newUser.setName(user.getName());
+        newUser.setLastName(user.getLastName());
+        usersService.addUserWithoutEncrypt(newUser);
         return "redirect:/user/details/" + id;
-    }
-
-    @RequestMapping(value = "/signup", method = RequestMethod.GET)
-    public String signup(Model model) {
-        model.addAttribute("user", new User());
-        return "signup";
+//        return "redirect:/user/list";
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
@@ -85,6 +84,12 @@ public class UsersController {
         return "redirect:home";
     }
 
+    @RequestMapping(value = "/signup", method = RequestMethod.GET)
+    public String signup(Model model) {
+        model.addAttribute("user", new User());
+        return "signup";
+    }
+
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(Model model) {
         return "login";
@@ -97,6 +102,12 @@ public class UsersController {
             User activeUser = usersService.getUserByDni(dni);
             model.addAttribute("markList", activeUser.getMarks());
         return "home";
+    }
+
+    @RequestMapping("/user/list/update")
+    public String updateList(Model model){
+        model.addAttribute("usersList", usersService.getUsers() );
+        return "user/list :: tableUsers";
     }
 
 }
