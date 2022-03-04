@@ -1,12 +1,14 @@
 package com.uniovi.notaneitor.services;
 
 import com.uniovi.notaneitor.entities.Professor;
+import com.uniovi.notaneitor.entities.User;
 import com.uniovi.notaneitor.repositories.MarksRepository;
 import com.uniovi.notaneitor.repositories.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -27,13 +29,18 @@ public class ProfessorService {
      */
 
     public List<Professor> getProfessorList() {
-        List<Professor> professorList = new LinkedList<>();
-        professorRepository.findAll().forEach(professorList::add);
-        return professorList;
+        List<Professor> professors = new ArrayList<Professor>();
+        professorRepository.findAll().forEach(professors::add);
+        return professors;
     }
     public Professor getProfessor(Long id) {
         return professorRepository.findById(id).get();
     }
+
+    public Professor getProfessorByDni(String dni){
+        return professorRepository.findByDni(dni);
+    }
+
     public void addProfessor(Professor professor) {
         professorRepository.save(professor);
     }

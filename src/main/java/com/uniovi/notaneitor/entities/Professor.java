@@ -1,5 +1,6 @@
 package com.uniovi.notaneitor.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,19 +10,19 @@ public class Professor {
     @Id
     @GeneratedValue
     private Long id;
+    @Column(unique = true)
     private String dni;
-    private String nombre;
-    private String apellidos;
-    private String categoria;
+    private String name;
+    private String surname;
+    private String category;
 
     public Professor() {}
 
-    public Professor(Long id, String dni, String nombre, String apellidos, String categoria) {
-        this.id = id;
+    public Professor(String dni, String name, String surname, String category) {
         this.dni = dni;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.categoria = categoria;
+        this.name = name;
+        this.surname = surname;
+        this.category = category;
     }
 
     @Override
@@ -29,9 +30,9 @@ public class Professor {
         return "Professor{" +
                 "id=" + id +
                 ", dni='" + dni + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", apellidos='" + apellidos + '\'' +
-                ", categoria='" + categoria + '\'' +
+                ", name='" + name + '\'' +
+                ", apellidos='" + surname + '\'' +
+                ", categoria='" + category + '\'' +
                 '}';
     }
 
@@ -51,27 +52,27 @@ public class Professor {
         this.dni = dni;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getApellidos() {
-        return apellidos;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
-    public String getCategoria() {
-        return categoria;
+    public String getCategory() {
+        return category;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setCategory(String category) {
+        this.category = category;
     }
 }
