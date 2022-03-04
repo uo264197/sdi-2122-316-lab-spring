@@ -12,11 +12,11 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 public interface MarksRepository extends CrudRepository<Mark, Long> {
-    @Query("SELECT r FROM Mark r WHERE (LOWER(r.description) LIKE LOWER(?1) OR LOWER(r.user.name) LIKE LOWER(?1))")
+    @Query("SELECT r FROM Mark r WHERE (LOWER(r.description) LIKE LOWER(?1) OR LOWER(r.user.name) LIKE LOWER(?1)) ORDER BY r.id ASC")
     Page<Mark> searchByDescriptionAndName(Pageable pageable, String searchtext);
 
     @Query("SELECT r FROM Mark r WHERE (LOWER(r.description) LIKE LOWER(?1) OR LOWER(r.user.name) LIKE LOWER(?1)) AND " +
-            "r.user = ?2 ")
+            "r.user = ?2 ORDER BY r.id ASC")
     Page<Mark> searchByDescriptionNameAndUser(Pageable pageable, String searchtext, User user);
 
     @Query("SELECT r FROM Mark r WHERE r.user = ?1 ORDER BY r.id ASC")
