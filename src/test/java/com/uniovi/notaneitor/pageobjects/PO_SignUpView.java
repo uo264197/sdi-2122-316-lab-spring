@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class PO_SignUpView extends PO_NavView {
+
     static public void fillForm(WebDriver driver, String dnip, String namep, String lastnamep, String passwordp, String passwordconfp) {
         WebElement dni = driver.findElement(By.name("dni"));
         dni.click();
@@ -30,4 +31,5 @@ public class PO_SignUpView extends PO_NavView {
         By boton = By.className("btn");
         driver.findElement(boton).click();
     }
+
 }

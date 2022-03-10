@@ -15,9 +15,9 @@ springsecurity4">
             <li class="nav-item dropdown active">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Gestión de notas
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div id="marksMenuButton" class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/mark/list">Ver Notas</a>
-                    <a class="dropdown-item" href="/mark/add" sec:authorize="hasRole('ROLE_PROFESSOR')">Agregar Nota</a>
+                    <a class="dropdown-item" href="/mark/add" sec:authorize="hasRole('ROLE_PROFESSOR')" id="btnAddMark">Agregar Nota</a>
                 </div>
             </li>
 

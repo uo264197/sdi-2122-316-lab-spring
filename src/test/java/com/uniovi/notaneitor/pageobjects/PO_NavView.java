@@ -49,4 +49,22 @@ public class PO_NavView extends PO_View {
         Selectedlanguage.get(0).click();
     }
 
+    public static void enterAddMark(WebDriver driver) {
+        List<WebElement> markButton = SeleniumUtils.waitLoadElementsBy(driver, "id", "navbarDropdown", getTimeout());
+        markButton.get(0).click();
+        SeleniumUtils.waitLoadElementsBy(driver, "class", "dropdown-item", getTimeout());
+        List<WebElement> addMark = SeleniumUtils.waitLoadElementsBy(driver, "class", "dropdown-item", getTimeout());
+        addMark.get(0).click();
+        SeleniumUtils.waitLoadElementsBy(driver, "text", "Agregar nota", getTimeout());
+    }
+
+    public static void enterAddUser(WebDriver driver) {
+        List<WebElement> markButton = SeleniumUtils.waitLoadElementsBy(driver, "id", "userDropdown", getTimeout());
+        markButton.get(0).click();
+        SeleniumUtils.waitLoadElementsBy(driver, "text", "Agregar usuario", getTimeout());
+        List<WebElement> addMark = SeleniumUtils.waitLoadElementsBy(driver, "text", "Agregar usuario", getTimeout());
+        addMark.get(0).click();
+        SeleniumUtils.waitLoadElementsBy(driver, "text", "Role", getTimeout());
+    }
+
 }
