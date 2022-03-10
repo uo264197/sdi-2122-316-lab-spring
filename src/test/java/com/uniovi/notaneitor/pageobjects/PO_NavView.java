@@ -9,7 +9,7 @@ import java.util.List;
 import static com.uniovi.notaneitor.pageobjects.PO_View.getTimeout;
 
 
-public class PO_NavView {
+public class PO_NavView extends PO_View {
 
     /**
      * Clic en una de las opciones principales (a href) y comprueba que se vaya a la vista con el elemento de
