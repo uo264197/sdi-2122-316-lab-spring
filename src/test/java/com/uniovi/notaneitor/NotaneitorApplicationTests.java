@@ -11,10 +11,11 @@ class NotaneitorApplicationTests {
 
     static String PathFirefox = "C:\\Program Files\\Mozilla Firefox\\firefox.exe";
     //static String Geckodriver = "C:\\Path\\geckodriver-v0.30.0-win64.exe";
-    static String Geckodriver = "C:\\Dev\\tools\\selenium\\geckodriver-v0.30.0-win64.exe";
+    static String Geckodriver = "D:\\Trabajos\\5 Año\\Semestre 2\\SDI\\Laboratorio\\Sesion 5\\PL-SDI-Sesión5-material\\geckodriver-v0.30.0-win64.exe";
     //static String PathFirefox = "/Applications/Firefox.app/Contents/MacOS/firefox-bin";
-//static String Geckodriver = "/Users/USUARIO/selenium/geckodriver-v0.30.0-macos";
-//Común a Windows y a MACOSX
+    //static String Geckodriver = "/Users/USUARIO/selenium/geckodriver-v0.30.0-macos";
+
+    //Común a Windows y a MACOSX
     static WebDriver driver = getDriver(PathFirefox, Geckodriver);
     static String URL = "http://localhost:8090";
     public static WebDriver getDriver(String PathFirefox, String Geckodriver) {
